@@ -1,5 +1,6 @@
 /* eslint-disable no-lone-blocks */
 import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 import { nanoid } from 'nanoid';
 import './App.css';
 import ContactForm from '../ContactForm';
@@ -94,3 +95,17 @@ class App extends Component {
 }
 
 export default App;
+
+App.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    })
+  ),
+  Filter: PropTypes.string,
+  addContacts: PropTypes.func,
+  deleteContact: PropTypes.func,
+  changeFilter: PropTypes.func,
+};

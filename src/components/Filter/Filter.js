@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { PropTypes } from 'prop-types';
 const Filter = ({ value, onChange }) => (
   <label>
     Find contacts by name
@@ -8,3 +8,7 @@ const Filter = ({ value, onChange }) => (
 );
 
 export default Filter;
+Filter.prototype = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};

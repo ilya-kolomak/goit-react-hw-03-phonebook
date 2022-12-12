@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import { nanoid } from 'nanoid';
 import './Contacts.css';
 const ContactsList = ({ contacts, onDeleteContact }) => (
@@ -16,3 +17,13 @@ const ContactsList = ({ contacts, onDeleteContact }) => (
 );
 
 export default ContactsList;
+ContactsList.prototype = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    })
+  ),
+  deleteContact: PropTypes.func,
+};
